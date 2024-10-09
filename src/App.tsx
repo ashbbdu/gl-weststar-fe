@@ -2,10 +2,10 @@
 import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import { RootState } from './store/store';
 import { blueTheme, darkTheme, greenTheme, lightTheme } from './themes';
+import ThemeSwitcher from './utils/ThemeSwitcher';
 
 
 const themes = {
@@ -16,14 +16,14 @@ const themes = {
 };
 
 const App: React.FC = () => {
-  const selectedTheme = useSelector((state: RootState) => state.theme.selectedTheme);
+  const selectedTheme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <ThemeProvider theme={themes[selectedTheme]}>
       <CssBaseline />
       <Box display="flex">
-        <Navbar />
         <Sidebar />
+        <ThemeSwitcher />
       </Box>
     </ThemeProvider>
   );

@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
     <AppBar>
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Theme Switcher App
+     
         </Typography>
         <Select
           value={selectedTheme}

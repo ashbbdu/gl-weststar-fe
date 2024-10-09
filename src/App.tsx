@@ -1,11 +1,12 @@
-// App.tsx
-import { CssBaseline, ThemeProvider } from '@mui/material';
+// Dashboard.tsx
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
-import SidebarComponent from './components/SidebarComponent';
+import Sidebar from './components/Sidebar';
 import { RootState } from './store/store';
 import { blueTheme, darkTheme, greenTheme, lightTheme } from './themes';
+
 
 const themes = {
   light: lightTheme,
@@ -20,17 +21,10 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={themes[selectedTheme]}>
       <CssBaseline />
-    <div style={{display : "flex"}}>
-    <div>
-      <SidebarComponent />
-      <Navbar />
-      </div>
-    
-      <div style={{ padding: 16 }}>
-        <h1>Welcome to the Multi-Theme App</h1>
-        <p>This theme will apply globally!</p>
-      </div>
-    </div>
+      <Box display="flex">
+        <Navbar />
+        <Sidebar />
+      </Box>
     </ThemeProvider>
   );
 };
